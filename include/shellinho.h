@@ -34,7 +34,12 @@ typedef struct	s_shell_data
 	int		last_exit_status;
 }				t_shell_data;
 
+// ===== INITIALISATION =====
+t_error	set_prompt(t_shell_data *data);
+
 // ===== UTILITARIES =====
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strdup(const char *s);
+size_t	ft_strlen(const char *s);
 
 #endif
