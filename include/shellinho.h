@@ -19,6 +19,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+# define PROMPT "shellinho-> "
+
 typedef bool	t_error;
 
 # define ERROR 1
