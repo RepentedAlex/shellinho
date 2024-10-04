@@ -15,8 +15,6 @@
 int main()
 {
 	t_shell_data	data;
-	char	        *prompt = "shellinho-> ";
-	char	        *input;
 
 	while (27)
 	{

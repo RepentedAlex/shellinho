@@ -26,7 +26,9 @@ typedef bool	t_error;
 // ===== STRUCTURES =====
 typedef struct	s_shell_data
 {
-	int	last_exit_status;
+	char	*prompt;
+	char	*input;
+	int		last_exit_status;
 }				t_shell_data;
 
 // ===== UTILITARIES =====
