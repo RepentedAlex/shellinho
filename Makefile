@@ -1,24 +1,9 @@
-## COLORS
-DEF_COLOR	=	\033[0;39m
-GRAY		=	\033[0;90m
-RED			=	\033[0;91m
-GREEN		=	\033[0;92m
-YELLOW		=	\033[0;93m
-BLUE		=	\033[0;94m
-MAGENTA		=	\033[0;95m
-CYAN		=	\033[0;96m
-WHITE		=	\033[0;97m
-
-## BG COLORS
-BG_DEF		= \x1b[0;0m
-BG_BLACK	= \x1b[0;40m
-BG_GREEN	= \x1b[0;42m
-
 ## COLORS FORMAT
 PENDING	= \x1b[0;37;40m
-OK		= \x1b[0;37;42m
+OK		= \x1b[0;97;42m
 ERROR	= \x1b[0;37;41
 RESET	= \x1b[0;0;0m
+INFO	= \x1b[0;30;103m
 
 
 ## SETTINGS
@@ -45,8 +30,7 @@ SRC_DIR	= src/
 TES_DIR	= tests/
 
 ## SOURCES
-SRC_FIL	= 	main \
-			fadsssd
+SRC_FIL	= 	main
 SRC		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ		= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
 
@@ -55,32 +39,37 @@ OBJF	= .cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Linking $(NAME)..."
+	@echo -en "$(PENDING)Linking $(NAME)...		"
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(NAME) linked successfully! :D"
+	@echo -e "$(OK)    OK    $(RESET)"
+	@echo -e "$(OK)	  $(NAME) is born! :D		  $(RESET)"
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-	@echo -en "$(PENDING)Compiling $<$...				"
-	@$(CC) $(FLAGS) -c $< $@ || (echo -e "$(ERROR)     Error     $(RESET)"; exit 1)
+	@echo -en "$(PENDING)Compiling $<...		"
+	@$(CC) $(FLAGS) -c $< -o $@ || (echo -e "$(ERROR)    Error    $(RESET)"; exit 1)
 	@echo -e "$(OK)    OK    $(RESET)"
 
 $(OBJF):
-	@echo "Creating build directory"
+	@echo -en "$(PENDING)Creating build directory	"
 	@mkdir -p $(BUI_DIR)
 	@mkdir -p $(addprefix $(BUI_DIR), $(dir $(SRC)))
 	@touch $(OBJF)
-	@echo "Build directory created successfully!"
-
-test:
-	echo -e "$(BG_BLACK)Test$(BG_DEF)"
+	@echo -e "$(OK)    OK    $(RESET)"
 
 clean:
 	@rm -rf $(BUI_DIR) $(OBJF)
+	@echo -en "$(PENDING)Removing build files...		"
+	@echo -e "$(OK)    OK    $(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo -en "$(PENDING)Removing $(NAME)...		"
+	@echo -e "$(OK)    OK    $(RESET)"
 
-re: fclean all
+re:
+	@$(MAKE) --no-print-directory fclean
+	@echo -e "$(INFO)	  Making $(NAME) again	  $(RESET)"
+	@$(MAKE) --no-print-directory all
 
 -include $(OBJ:.o=.d)
 
