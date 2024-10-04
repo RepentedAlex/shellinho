@@ -14,6 +14,7 @@ CFLAGS	= -Wall -Wextra -Werror
 DFLAGS	= -MMD -MP
 FFLAGS	= -fsanitize=address
 IFLAGS	= -Iinclude
+LFLAGS	= -lreadline
 DEBUG	= -g3
 FLAGS	= $(CFLAGS) $(DFLAGS) $(IFLAGS)
 #FLAGS	+= $(FFLAGS)
