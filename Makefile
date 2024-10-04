@@ -33,6 +33,7 @@ TES_DIR	= tests/
 ## SOURCES
 SRC_FIL	= 	main \
 			builtins \
+			exit \
 			prompt \
 			utils1
 SRC		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
