@@ -16,7 +16,7 @@ FFLAGS	= -fsanitize=address
 IFLAGS	= -Iinclude
 LFLAGS	= -lreadline
 DEBUG	= -g3
-FLAGS	= $(CFLAGS) $(DFLAGS) $(IFLAGS)
+FLAGS	= $(CFLAGS) $(DFLAGS) $(IFLAGS) $(LFLAGS)
 #FLAGS	+= $(FFLAGS)
 FLAGS	+= $(DEBUG)
 
