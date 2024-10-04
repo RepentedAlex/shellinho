@@ -20,10 +20,10 @@ int main()
 		return (ERROR);
 	while (1)
 	{
-		input = readline(data.prompt);
-		if (!ft_strcmp(input, "exit"))
+		data.input = readline(data.prompt);
+		if (!ft_strcmp(data.input, "exit"))
 			break;
-		printf("%s\n", input);
+		printf("%s\n", data.input);
 	}
 	return (0);
 }
