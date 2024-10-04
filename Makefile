@@ -40,31 +40,31 @@ OBJF	= .cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo -en "$(PENDING)Linking $(NAME)...		"
+	@echo -en "$(PENDING)Linking $(NAME)...			"
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo -e "$(OK)    OK    $(RESET)"
-	@echo -e "$(OK)	  $(NAME) is born! :D		  $(RESET)"
+	@echo -e "$(OK)	  $(NAME) is born! :D			  $(RESET)"
 
 $(BUI_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-	@echo -en "$(PENDING)Compiling $<...		"
+	@echo -en "$(PENDING)Compiling $<..			"
 	@$(CC) $(FLAGS) -c $< -o $@ || (echo -e "$(ERROR)    Error    $(RESET)"; exit 1)
 	@echo -e "$(OK)    OK    $(RESET)"
 
 $(OBJF):
-	@echo -en "$(PENDING)Creating build directory	"
+	@echo -en "$(PENDING)Creating build directory		"
 	@mkdir -p $(BUI_DIR)
-	@mkdir -p $(addprefix $(BUI_DIR), $(dir $(SRC)))
+	@mkdir -p $(BUI_DIR)
 	@touch $(OBJF)
 	@echo -e "$(OK)    OK    $(RESET)"
 
 clean:
-	@rm -rf $(BUI_DIR) $(OBJF)
+	rm -rf $(BUI_DIR) $(OBJF)
 	@echo -en "$(PENDING)Removing build files...		"
 	@echo -e "$(OK)    OK    $(RESET)"
 
 fclean: clean
-	@rm -f $(NAME)
 	@echo -en "$(PENDING)Removing $(NAME)...		"
+	@rm -f $(NAME)
 	@echo -e "$(OK)    OK    $(RESET)"
 
 re:
