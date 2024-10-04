@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apetitco <apetitco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 17:58:10 by apetitco          #+#    #+#             */
-/*   Updated: 2024/10/04 17:31:31 by apetitco         ###   ########.fr       */
+/*   Created: 2024/10/04 17:21:04 by apetitco          #+#    #+#             */
+/*   Updated: 2024/10/04 17:21:06 by apetitco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shellinho.h"
 
-int main()
+t_error	set_prompt(t_shell_data *data)
 {
-	t_shell_data	data;
-
-	if (set_prompt(&data))
+	data->prompt = ft_strdup(PROMPT);
+	if (!data->prompt)
 		return (ERROR);
-	while (1)
-	{
-		input = readline(prompt);
-		if (!ft_strcmp(input, "exit"))
-			break;
-		printf("%s\n", input);
-	}
-	return (0);
+	return (NO_ERROR);
 }
