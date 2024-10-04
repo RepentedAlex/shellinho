@@ -31,7 +31,9 @@ SRC_DIR	= src/
 TES_DIR	= tests/
 
 ## SOURCES
-SRC_FIL	= 	main
+SRC_FIL	= 	main \
+			builtins \
+			utils1
 SRC		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ		= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
 
