@@ -76,6 +76,9 @@ re:
 	@echo -e "$(INFO)	  Making $(NAME) again	  $(RESET)"
 	@$(MAKE) --no-print-directory all
 
+v :
+	@valgrind --leak-check=full --show-leak-kinds=all --suppressions=readline_supp.supp ./shellinho
+
 -include $(OBJ:.o=.d)
 
 >PHONY: all clean fclean re
