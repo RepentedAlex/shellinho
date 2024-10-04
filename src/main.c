@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "shellinho.h"
+#include "exit.h"
 
 int main()
 {
@@ -25,5 +26,6 @@ int main()
 			break;
 		printf("%s\n", data.input);
 	}
+	ft_exit(&data);
 	return (0);
 }
