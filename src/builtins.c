@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "shellinho.h"
 #include "builtins.h"
 
-
+// int	bi_exit(t_shell_data *data)
+// {
+//
+// }
