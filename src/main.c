@@ -13,6 +13,35 @@
 #include "shellinho.h"
 #include "exit.h"
 
+t_error	exec_command(t_shell_data *data)
+{
+	if (!data->input)
+		return (ERROR);
+	return (NO_ERROR);
+}
+
+t_error	interpret_command(t_shell_data *data)
+{
+	if (!data->input)
+		return (ERROR);
+	return (NO_ERROR);
+}
+
+t_error	read_command(t_shell_data *data)
+{
+	if (!data->input)
+		return (ERROR);
+	return (NO_ERROR);
+}
+
+t_error	display_prompt(t_shell_data *data)
+{
+	data->input = readline(data->prompt);
+	if (!data->input) //Peut arriver si EOF avec string vide, donc pas forcément une erreur.
+		return (ERROR);
+	return (NO_ERROR);
+}
+
 int main()
 {
 	t_shell_data	data;
