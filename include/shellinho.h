@@ -37,6 +37,12 @@ typedef struct	s_shell_data
 // ===== INITIALISATION =====
 t_error	set_prompt(t_shell_data *data);
 
+// ===== INTERPRETER LOOP =====
+t_error	display_prompt(t_shell_data *data);
+t_error	read_command(t_shell_data *data);
+t_error	interpret_command(t_shell_data *data);
+t_error	exec_command(t_shell_data *data);
+
 // ===== UTILITARIES =====
 void *ft_memset (void *s, int c, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);

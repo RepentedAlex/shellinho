@@ -34,6 +34,7 @@ TES_DIR	= tests/
 SRC_FIL	= 	main \
 			builtins \
 			exit \
+			interpreter_loop \
 			prompt \
 			utils1
 SRC		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
