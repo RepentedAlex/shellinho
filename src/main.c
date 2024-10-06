@@ -17,23 +17,23 @@ t_error interpreter_loop(t_shell_data *data)
 {
 	while (1)
 	{
-		//TODO Afficher le prompt
+		//TODO Display the prompt
 		if (display_prompt(data))
 			break;
 
-		//TODO Lire la commande
+		//TODO Read the command
 		if (read_command(data))
 			break;
 
-		//TODO Interpréter la commande
+		//TODO Interpret the command
 		if (interpret_command(data))
 			break;
 
-		//TODO Exécuter la commande
+		//TODO Execute the command
 		if (exec_command(data))
 			break;
 
-		//TODO Free l'input
+		//TODO Free the input
 		free(data->input);
 	}
 	return (NO_ERROR);

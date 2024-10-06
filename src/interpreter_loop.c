@@ -15,7 +15,7 @@
 t_error	display_prompt(t_shell_data *data)
 {
 	data->input = readline(data->prompt);
-	if (!data->input) //Peut arriver si EOF avec string vide, donc pas forcément une erreur.
+	if (!data->input) //Might happen if EOF with empty string, so not always an error.
 		return (ERROR);
 	return (NO_ERROR);
 }
