@@ -51,10 +51,28 @@ int main()
 		return (ERROR);
 	while (1)
 	{
-		data.input = readline(data.prompt);
-		if (!ft_strcmp(data.input, "exit"))
+		//TODO Afficher le prompt
+		if (display_prompt(&data))
 			break;
-		printf("%s\n", data.input);
+
+		//TODO Lire la commande
+		if (read_command(&data))
+			break;
+
+		//TODO Interpréter la commande
+		if (interpret_command(&data))
+			break;
+
+		//TODO Exécuter la commande
+		if (exec_command(&data))
+			break;
+
+		//TODO Free l'input
+		free(data.input);
+
+//		if (!ft_strcmp(data.input, "exit"))
+//			break;
+//		printf("%s\n", data.input);
 	}
 	ft_exit(&data);
 	return (0);
