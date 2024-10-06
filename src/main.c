@@ -13,32 +13,29 @@
 #include "shellinho.h"
 #include "exit.h"
 
-t_error	exec_command(t_shell_data *data)
+t_error interpreter_loop(t_shell_data *data)
 {
-	if (!data->input)
-		return (ERROR);
-	return (NO_ERROR);
-}
+	while (1)
+	{
+		//TODO Afficher le prompt
+		if (display_prompt(data))
+			break;
 
-t_error	interpret_command(t_shell_data *data)
-{
-	if (!data->input)
-		return (ERROR);
-	return (NO_ERROR);
-}
+		//TODO Lire la commande
+		if (read_command(data))
+			break;
 
-t_error	read_command(t_shell_data *data)
-{
-	if (!data->input)
-		return (ERROR);
-	return (NO_ERROR);
-}
+		//TODO Interpréter la commande
+		if (interpret_command(data))
+			break;
 
-t_error	display_prompt(t_shell_data *data)
-{
-	data->input = readline(data->prompt);
-	if (!data->input) //Peut arriver si EOF avec string vide, donc pas forcément une erreur.
-		return (ERROR);
+		//TODO Exécuter la commande
+		if (exec_command(data))
+			break;
+
+		//TODO Free l'input
+		free(data->input);
+	}
 	return (NO_ERROR);
 }
 
@@ -49,31 +46,7 @@ int main()
 	ft_memset(&data, 0, sizeof(data));
 	if (set_prompt(&data))
 		return (ERROR);
-	while (1)
-	{
-		//TODO Afficher le prompt
-		if (display_prompt(&data))
-			break;
-
-		//TODO Lire la commande
-		if (read_command(&data))
-			break;
-
-		//TODO Interpréter la commande
-		if (interpret_command(&data))
-			break;
-
-		//TODO Exécuter la commande
-		if (exec_command(&data))
-			break;
-
-		//TODO Free l'input
-		free(data.input);
-
-//		if (!ft_strcmp(data.input, "exit"))
-//			break;
-//		printf("%s\n", data.input);
-	}
+	interpreter_loop(&data);
 	ft_exit(&data);
 	return (0);
 }
