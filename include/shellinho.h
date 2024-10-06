@@ -20,6 +20,7 @@
 # include <readline/history.h>
 
 # define PROMPT "shellinho-> "
+# define IFS " \t\n"
 
 typedef bool	t_error;
 
@@ -44,7 +45,8 @@ t_error	interpret_command(t_shell_data *data);
 t_error	exec_command(t_shell_data *data);
 
 // ===== UTILITARIES =====
-void *ft_memset (void *s, int c, size_t n);
+bool is_ifs(char c);
+void	*ft_memset (void *s, int c, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);

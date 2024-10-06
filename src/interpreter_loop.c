@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "shellinho.h"
+#include "lexing.h"
 
 t_error	display_prompt(t_shell_data *data)
 {
@@ -22,8 +23,9 @@ t_error	display_prompt(t_shell_data *data)
 
 t_error	read_command(t_shell_data *data)
 {
-	if (!data->input)
-		return (ERROR);
+	lexer(data);
+//	if (!data->input)
+//		return (ERROR);
 	return (NO_ERROR);
 }
 

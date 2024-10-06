@@ -58,3 +58,17 @@ size_t ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+bool is_ifs(char c)
+{
+	int	i;
+
+	i = 0;
+	while (IFS[i])
+	{
+		if (c == IFS[i])
+			return (true);
+		i++;
+	}
+	return (false);
+}
