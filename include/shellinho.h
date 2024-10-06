@@ -38,6 +38,7 @@ typedef struct	s_shell_data
 t_error	set_prompt(t_shell_data *data);
 
 // ===== UTILITARIES =====
+void *ft_memset (void *s, int c, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *s);

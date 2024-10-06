@@ -12,6 +12,18 @@
 
 #include "shellinho.h"
 
+void *ft_memset (void *s, int c, size_t n)
+{
+	size_t	i;
+
+	if (!s)
+		return (s);
+	i = -1;
+	while (++i < n)
+		((char *)s)[i] = c;
+	return (s);
+}
+
 int		ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)

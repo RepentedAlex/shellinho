@@ -46,6 +46,7 @@ int main()
 {
 	t_shell_data	data;
 
+	ft_memset(&data, 0, sizeof(data));
 	if (set_prompt(&data))
 		return (ERROR);
 	while (1)
