@@ -13,10 +13,12 @@
 #include "shellinho.h"
 #include "exit.h"
 
-void ft_exit(t_shell_data *data)
+void	ft_exit(t_shell_data *data)
 {
 	if (data->prompt)
 		free(data->prompt);
 	if (data->input)
 		free(data->input);
+	if (data->token_array)
+		free(data->token_array);
 }

@@ -12,7 +12,7 @@
 
 #include "shellinho.h"
 
-void *ft_memset (void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ void *ft_memset (void *s, int c, size_t n)
 	return (s);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
 	{
@@ -49,7 +49,7 @@ char	*ft_strdup(const char *s)
 	return (ret);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -59,7 +59,7 @@ size_t ft_strlen(const char *s)
 	return (i);
 }
 
-bool is_ifs(char c)
+bool	is_ifs(char c)
 {
 	int	i;
 

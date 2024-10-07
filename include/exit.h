@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef EXIT_H
-#define EXIT_H
+# define EXIT_H
 
-#include "shellinho.h"
+# include "shellinho.h"
 
-void ft_exit(t_shell_data *data);
+void	ft_exit(t_shell_data *data);
 
 #endif

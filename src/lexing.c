@@ -20,14 +20,14 @@ char	*copy_token(const char *str, int *i)
 	int		j;
 
 	while (is_ifs(str[*i]))
-		*i++;
+		*i += 1;
 	len = 0;
 	while (str[*i])
 	{
 		if (is_ifs(str[*i]))
-			break;
+			break ;
 		len++;
-		*i++;
+		*i += 1;
 	}
 	ret = (char *) malloc(sizeof(char) * (len + 1));
 	if (!ret)
@@ -37,6 +37,7 @@ char	*copy_token(const char *str, int *i)
 	while (j < len)
 	{
 		ret[j] = str[*i];
+		*i += 1;
 		j++;
 	}
 	ret[j] = '\0';
@@ -49,6 +50,7 @@ int	count_tokens(const char *str)
 	int		i;
 	bool	is_word;
 
+	i = 0;
 	ret = 0;
 	is_word = false;
 	while (str && str[i])
@@ -65,32 +67,36 @@ int	count_tokens(const char *str)
 	return (ret);
 }
 
-char	**ft_split(char *str, char *delim)
+t_token *ft_split(char *str)
 {
-	char	**ret;
+	t_token	*ret;
 	int		i;
+	int		j;
 	int		total_tokens;
 
 	total_tokens = count_tokens(str);
-	ret = (char **)malloc(sizeof(char *) * (total_tokens + 1));
+	ret = (t_token *)malloc(sizeof(t_token) * (total_tokens + 1));
 	if (!ret)
 		return (NULL);
-	ret[total_tokens] = ft_strdup("\0");
+	ret[total_tokens].value = ft_strdup("\0");
 	i = 0;
-	while (str && str[i])
+	j = 0;
+	while (j < total_tokens)
 	{
 		if (!is_ifs(str[i]))
-			ret[i] = copy_token(str, &i);
+			ret[j].value = copy_token(str, &i);
 		i++;
+		j++;
 	}
 	return (ret);
 }
 
 void	lexer(t_shell_data *data)
 {
-	char **tokens;
-	int i;
-	int j;
+	t_token	*token_array;
 
-	ft_split(data->input, WHITESPACE)
+	token_array = ft_split(data->input);
+	if (!token_array)
+		return ;
+	data->token_array = token_array;
 }

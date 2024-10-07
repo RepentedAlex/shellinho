@@ -1,9 +1,9 @@
 ## COLORS FORMAT
-PENDING	= \x1b[0;37;40m
-OK		= \x1b[0;97;42m
-ERROR	= \x1b[0;37;41
-RESET	= \x1b[0;0;0m
-INFO	= \x1b[0;30;103m
+PENDING	= \033[0;37;40m
+OK		= \033[0;97;42m
+ERROR	= \033[0;37;41m
+RESET	= \033[0;0;0m
+INFO	= \033[0;30;103m
 
 
 ## SETTINGS
@@ -43,6 +43,9 @@ OBJ		= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
 
 OBJF	= .cache_exists
 
+## FORMATTING
+TERMINAL_WIDTH = 60
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -64,7 +67,7 @@ $(OBJF):
 	@echo -e "$(OK)    OK    $(RESET)"
 
 clean:
-	rm -rf $(BUI_DIR) $(OBJF)
+	@rm -rf $(BUI_DIR) $(OBJF)
 	@echo -en "$(PENDING)Removing build files...		"
 	@echo -e "$(OK)    OK    $(RESET)"
 

@@ -13,36 +13,43 @@
 #include "shellinho.h"
 #include "exit.h"
 
-t_error interpreter_loop(t_shell_data *data)
+t_error	interpreter_loop(t_shell_data *data)
 {
-	while (1)
+	bool	test;
+
+	test = true;
+	while (test)
 	{
 		//TODO Display the prompt
 		if (display_prompt(data))
-			break;
+			break ;
 
 		//TODO Read the command
 		if (read_command(data))
-			break;
+			break ;
 
 		//TODO Interpret the command
 		if (interpret_command(data))
-			break;
+			break ;
 
 		//TODO Execute the command
 		if (exec_command(data))
-			break;
+			break ;
 
 		//TODO Free the input
 		free(data->input);
+		test = false;
 	}
 	return (NO_ERROR);
 }
 
-int main()
+int	main(int argc, char *argv[], char *envp[])
 {
 	t_shell_data	data;
 
+	(void)envp;
+	(void)argc;
+	(void)argv;
 	ft_memset(&data, 0, sizeof(data));
 	if (set_prompt(&data))
 		return (ERROR);
