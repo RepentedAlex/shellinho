@@ -38,6 +38,7 @@ t_error	interpreter_loop(t_shell_data *data)
 
 		//TODO Free the input
 		free(data->input);
+		data->input = NULL;
 		test = false;
 	}
 	return (NO_ERROR);
